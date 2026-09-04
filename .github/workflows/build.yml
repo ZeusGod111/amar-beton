@@ -19,13 +19,20 @@ jobs:
         with:
           node-version: 20
 
-      - name: Create package.json
+      - name: Install Capacitor
         run: |
           npm init -y
           npm install @capacitor/core @capacitor/cli @capacitor/android
 
-      - name: Add Android platform
+      - name: Create Android project
         run: npx cap add android
+
+      - name: Prepare web assets
+        run: |
+          mkdir -p dist
+          cp index.html dist/
+          cp app.js dist/ 2>/dev/null || true
+          cp manifest.webmanifest dist/ 2>/dev/null || true
 
       - name: Sync Capacitor
         run: npx cap sync android
