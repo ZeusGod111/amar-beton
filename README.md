@@ -32,3 +32,7 @@ Core data is stored locally on the device. Use Backup regularly before clearing 
 
 ## License
 Private/project use.
+
+## Android APK build
+
+See `README_APK.md`. GitHub Actions automatically creates a debug APK using Capacitor.
